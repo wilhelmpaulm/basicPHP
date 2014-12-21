@@ -1,7 +1,7 @@
 <?php
 #############################################################################
 #                                                                           #
-#                                BASIC MVC                                  #
+#                                basicPHP                                   #
 #                                                                           #
 #              wilhelmpaulm's super simple MVC framework tutorial           #
 #                                                                           #
