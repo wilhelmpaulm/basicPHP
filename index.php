@@ -1,4 +1,5 @@
 <?php
+
 #############################################################################
 #                                                                           #
 #                                basicPHP                                   #
@@ -33,7 +34,14 @@ $safe_pages = ['index', 'login', 'logout', 'sample'];
 # if it doesnt find it then it would send a 404 page
 if ($route_type == 'file') {
     $file_link = "./controller/" . $uri . ".php";
-    if (file_exists($file_link) && in_array($params[0], $safe_pages)) {
+    if ($params[0] == '') {
+        try {
+            include('./controller/index.php');
+        } catch (Exception $exc) {
+            # echo $exc->getTraceAsString();
+            include($page["404"]);
+        }
+    } else if (file_exists($file_link) && in_array($params[0], $safe_pages)) {
         try {
             include($file_link);
         } catch (Exception $exc) {
